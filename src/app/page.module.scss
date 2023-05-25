@@ -1,0 +1,35 @@
+@import "../styles/mixin.module.scss";
+
+.main {
+  background: url("/assets/image/bg-main.jpg") 50% 85%;
+  background-size: cover;
+  height: 100vh;
+  flex-grow: 1;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  @include flex-center;
+  figure {
+    flex-direction: column;
+    @include flex-center;
+  }
+  .imgWrap {
+    $size: 10rem;
+    width: clamp(8rem, 10vw, $size);
+    height: clamp(8rem, 10vw, $size);
+    position: relative;
+    flex-grow: 1;
+  }
+  figcaption {
+    margin: 1rem 0 2rem 0;
+  }
+  q {
+    font-size: var(--font-title);
+    font-weight: 500;
+  }
+  p {
+    line-height: 1.5;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+  }
+}

@@ -1,0 +1,21 @@
+:root {
+  --font-title: clamp(2.2rem, 3vw, 3rem);
+}
+
+html {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
+  word-break: keep-all;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+}

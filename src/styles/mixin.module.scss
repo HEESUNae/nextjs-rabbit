@@ -1,0 +1,19 @@
+/* FLEX */
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BUTTON */
+@mixin circle-btn($size, $color) {
+  border: 0.1rem solid rgba($color, 0.4);
+  background-color: rgba($color, 0.3);
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  transition: 0.3s;
+  &:hover {
+    background-color: $color;
+  }
+}

@@ -1,0 +1,47 @@
+@import "../../styles/mixin.module.scss";
+
+.navColumn {
+  .navWrap {
+    display: flex;
+    gap: 1.5rem;
+    &.test {
+      flex-direction: column;
+    }
+    button {
+      @include circle-btn(5rem, #fff);
+      img {
+        filter: invert(1);
+      }
+      &:hover {
+        img {
+          filter: invert(0);
+        }
+      }
+    }
+  }
+}
+
+.navRow {
+  background: linear-gradient(45deg, #242d41, #1f2736);
+  padding: 1.5rem;
+  height: 100vh;
+  .navWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    &.test {
+      flex-direction: column;
+    }
+    button {
+      @include circle-btn(5rem, #fff);
+      img {
+        filter: invert(1);
+      }
+      &:hover {
+        img {
+          filter: invert(0);
+        }
+      }
+    }
+  }
+}

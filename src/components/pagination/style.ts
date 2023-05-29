@@ -14,8 +14,8 @@ export const StyledPagination = styled.div`
       background-color: #fff;
     }
     .active {
-      background-color: blanchedalmond;
-      color: chocolate;
+      background-color: brown;
+      color: #fff;
       font-weight: 500;
     }
   }

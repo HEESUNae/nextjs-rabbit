@@ -4,10 +4,10 @@ export const StyledPostList = styled.div`
   .post {
     table {
       width: 100%;
-      border-top: 0.2rem solid chocolate;
-      border-bottom: 0.1rem solid #ddd;
+      border-top: 0.2rem solid brown;
+      border-bottom: 0.1rem solid #121212;
       tr {
-        border: 0.1rem solid #ddd;
+        border: 0.1rem solid #121212;
       }
       td {
         background-color: rgba(255, 255, 255, 0.1);
@@ -20,7 +20,7 @@ export const StyledPostList = styled.div`
           text-align: center;
           width: 5rem;
           box-sizing: border-box;
-          border-right: 0.1rem solid #ddd;
+          border-right: 0.1rem solid #121212;
         }
         p {
           display: -webkit-box;

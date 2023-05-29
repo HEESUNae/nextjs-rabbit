@@ -13,9 +13,28 @@ html {
   font-size: clamp(1.3rem, 3vw, 1.5rem);
   word-break: keep-all;
 }
-
+a {
+  text-decoration: none;
+  display: block;
+}
 button {
   cursor: pointer;
   border: 0;
   background-color: transparent;
+}
+table {
+  border-collapse: collapse;
+}
+
+main {
+  background: url("/assets/image/bg-main.jpg") 50% 85%;
+  background-size: cover;
+  height: 100vh;
+  flex-grow: 1;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

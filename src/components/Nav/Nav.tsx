@@ -4,14 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import styles from "./Nav.module.scss";
+import styles from "@/styles/Nav.module.scss";
 
 const Nav = () => {
   const pathname = usePathname();
   return (
     <nav className={pathname === "/" ? styles.navColumn : styles.navRow}>
       <div className={styles.navWrap}>
-        <Link href={"/about"}>
+        {pathname !== "/" && (
+          <Link href={"/"}>
+            <button>
+              <Image src="/assets/icon/icon-rabbit.svg" alt="" width={30} height={30} priority />
+            </button>
+          </Link>
+        )}
+        <Link href={"/office"}>
           <button>
             <Image src="/assets/icon/icon-city.svg" alt="" width={30} height={30} priority />
           </button>

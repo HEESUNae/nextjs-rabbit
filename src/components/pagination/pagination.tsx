@@ -35,6 +35,7 @@ const Pagination: React.FC<PaginationType> = ({ currentPage, listTotalCount, one
   const currentPageFn = (e: React.MouseEvent) => {
     const target = e.target as HTMLButtonElement;
     setCurrentPage(Number(target.textContent));
+    listIdxFn(Number(target.textContent));
   };
 
   const nextPageFn = () => {

@@ -1,13 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 // style
 import { StyledPostDetail } from "./style";
 
 // lib
-import { useAtomValue } from "jotai";
-import { postsAtom } from "@/store/postListStore";
+import { useAtom, useAtomValue } from "jotai";
+import { postsApiAtom } from "@/store/postListStore";
 import PrimaryBtn from "@/components/button/primaryBtn/primaryBtn";
 
 interface PostsDetailType {
@@ -16,10 +16,10 @@ interface PostsDetailType {
 
 const PostsDetail = ({ params }: PostsDetailType) => {
   const router = useRouter();
-  const postId = params.slug;
-  const slugIdx = Number(postId) - 1;
+  const postId = Number(params.slug);
+  const slugIdx = postId - 1;
 
-  const item = useAtomValue(postsAtom);
+  const item = useAtomValue(postsApiAtom);
 
   return (
     <StyledPostDetail>
@@ -55,8 +55,6 @@ const PostsDetail = ({ params }: PostsDetailType) => {
             </tbody>
           </table>
           <div className="btn-container">
-            <PrimaryBtn title="삭제하기" />
-            <PrimaryBtn title="수정하기" />
             <PrimaryBtn title="뒤로가기" onClick={() => router.back()} />
           </div>
         </div>

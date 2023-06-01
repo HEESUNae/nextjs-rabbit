@@ -1,21 +1,13 @@
 import { atom } from "jotai";
 
 // api
-import { getPosts } from "@/api/api";
+import { getPosts, PostsType } from "@/api/api";
 
-// interface
-interface PostsType {
-  id: number;
-  userId: number;
-  title: string;
-  body: string;
-}
-
-// postsList
-export const postsAtom = atom(async () => {
-  const res = await getPosts();
-  return res.data as PostsType[];
-});
+export const postsApiAtom = atom<Promise<PostsType[]> | PostsType[]>(getPosts());
+export const valueAtom = atom(
+  (get) => get(postsApiAtom),
+  (_get, set, newText: PostsType[]) => set(postsApiAtom, newText)
+);
 
 // pagination
 export const currentPageAtom = atom(1); //* 현재페이지
@@ -25,14 +17,14 @@ export const oneTabPageCountAtom = atom(5); //* 한 탭당 페이지 갯수
 //* 한 페이지당 보여질 리스트
 export const postsSlice = atom(async (get) => {
   const pageItem: PostsType[][] = [];
-  for (let i = 0; i < (await get(postsAtom)).length; i += get(onePagelistCountAtom)) {
-    const arrSplit: PostsType[] = (await get(postsAtom)).slice(i, i + get(onePagelistCountAtom));
+  for (let i = 0; i < (await get(postsApiAtom)).length; i += get(onePagelistCountAtom)) {
+    const arrSplit: PostsType[] = (await get(postsApiAtom)).slice(i, i + get(onePagelistCountAtom));
     pageItem.push(arrSplit);
   }
   return pageItem;
 });
 
-export const listTotalCountAtom = atom(async (get) => Math.ceil((await get(postsAtom)).length / get(onePagelistCountAtom))); //* 총 페이지 갯수
+export const listTotalCountAtom = atom(async (get) => Math.ceil((await get(postsApiAtom)).length / get(onePagelistCountAtom))); //* 총 페이지 갯수
 export const tabAciveCounterAtom = atom(0); //* 활성화 된 탭 인덱스
 
 //* 페이지 번호

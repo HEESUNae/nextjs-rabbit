@@ -5,7 +5,8 @@ import Link from "next/link";
 import styles from "@/styles/page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Main Page",
+  title: "Rabbit Posts",
+  description: "무료 API를 활용하여 포트폴리오 용도로 만든 개인작업물입니다.",
 };
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
       <p>
         JSON Placeholder 사이트의 무료 API를 이용하여
         <br />
-        블로그의 CRUD 를 만들어보았습니다.
+        처음부터 끝까지 혼자 만든 100%로 본인 작업물입니다.
         <br />
         Next.js 와 TypeScript 를 활용하여 만들었습니다.
         <br />
